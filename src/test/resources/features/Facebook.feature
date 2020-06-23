@@ -10,6 +10,6 @@ Feature: Login and Post status on facebook
     And post the status "<message>"
     Examples:
       | username | password | message     |
-      | test     | test     | Hello World |
+      |          |          | Hello World |
 
 

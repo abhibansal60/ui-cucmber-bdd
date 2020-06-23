@@ -1,10 +1,7 @@
 package com.example.ui.automation.pages;
 
 import com.example.ui.automation.setup.DriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +16,11 @@ public class Base {
 
     public String fetchPageTitle(){
        return dm.getDriver().getTitle();
+    }
+
+    public void jsClick(By locator){
+        JavascriptExecutor executor = (JavascriptExecutor)dm.getDriver();
+        executor.executeScript("arguments[0].click();", waitForElement(locator));
     }
 
     public void sleep(int t){

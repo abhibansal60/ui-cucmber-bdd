@@ -2,6 +2,7 @@ package com.example.ui.automation.stepdefinitions;
 
 import com.example.ui.automation.config.ServiceConfig;
 import com.example.ui.automation.setup.DriverManager;
+import com.example.ui.automation.world.ConduitWorld;
 import com.example.ui.automation.world.FBWorld;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,9 +15,12 @@ public class Hooks {
     DriverManager dm;
     @Autowired
     FBWorld fbw;
+    @Autowired
+    ConduitWorld cdw;
     @Before
     public void beforeScenario(){
-        dm.getDriver().get(fbw.getBaseURL());
+        //dm.getDriver().get(fbw.getBaseURL());
+        dm.getDriver().get(cdw.getBaseURL());
     }
     @After
     public void tearDown(){
